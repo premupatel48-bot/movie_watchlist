@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/movie_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/tvScreenTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add New Movie"
+            android:textColor="@color/movie_primary"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp"/>
+
+        <EditText
+            android:id="@+id/etMovieName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Movie Name"
+            android:textColor="@color/movie_text_primary"
+            android:textColorHint="@color/movie_text_secondary"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/movie_primary"/>
+
+        <EditText
+            android:id="@+id/etGenre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Genre"
+            android:textColor="@color/movie_text_primary"
+            android:textColorHint="@color/movie_text_secondary"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/movie_primary"/>
+
+        <EditText
+            android:id="@+id/etYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Release Year"
+            android:textColor="@color/movie_text_primary"
+            android:textColorHint="@color/movie_text_secondary"
+            android:inputType="number"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/movie_primary"/>
+
+        <EditText
+            android:id="@+id/etDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Description / Notes"
+            android:textColor="@color/movie_text_primary"
+            android:textColorHint="@color/movie_text_secondary"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/movie_primary"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Poster"
+            android:textColor="@color/movie_text_primary"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
+
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+            <LinearLayout
+                android:id="@+id/layoutPosters"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <!-- Posters will be added or fixed in XML if simple -->
+                <ImageView
+                    android:id="@+id/ivPoster1"
+                    android:layout_width="60dp"
+                    android:layout_height="90dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/img"
+                    android:scaleType="centerCrop"/>
+                <ImageView
+                    android:id="@+id/ivPoster2"
+                    android:layout_width="60dp"
+                    android:layout_height="90dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/img_1"
+                    android:scaleType="centerCrop"/>
+                <ImageView
+                    android:id="@+id/ivPoster3"
+                    android:layout_width="60dp"
+                    android:layout_height="90dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/img_2"
+                    android:scaleType="centerCrop"/>
+                <ImageView
+                    android:id="@+id/ivPoster4"
+                    android:layout_width="60dp"
+                    android:layout_height="90dp"
+                    android:layout_marginEnd="8dp"
+                    android:src="@drawable/img_3"
+                    android:scaleType="centerCrop"/>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Schedule Reminder"
+            android:textColor="@color/movie_text_primary"
+            android:textSize="16sp"
+            android:layout_marginBottom="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+            <Button
+                android:id="@+id/btnDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Select Date"
+                android:layout_marginEnd="8dp"/>
+            <Button
+                android:id="@+id/btnTime"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Select Time"/>
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/cbWatched"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Watched"
+            android:textColor="@color/movie_text_primary"
+            android:buttonTint="@color/movie_primary"
+            android:layout_marginBottom="8dp"/>
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="0.5"
+            android:visibility="gone"
+            android:progressTint="@color/movie_accent"
+            android:layout_marginBottom="24dp"/>
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SAVE MOVIE"
+            android:backgroundTint="@color/movie_primary"
+            android:textColor="@color/white"
+            android:padding="12dp" />
+
+    </LinearLayout>
+</ScrollView>

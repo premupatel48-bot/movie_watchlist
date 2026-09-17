@@ -1,0 +1,11 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.Movie_watchlist" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/movie_primary</item>
+        <item name="colorSecondary">@color/movie_accent</item>
+        <item name="android:windowBackground">@color/movie_background</item>
+        <item name="android:statusBarColor">@color/movie_background</item>
+    </style>
+
+    <style name="Theme.Movie_watchlist" parent="Base.Theme.Movie_watchlist" />
+</resources>
