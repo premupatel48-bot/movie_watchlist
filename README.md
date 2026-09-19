@@ -1,227 +1,303 @@
-Movie Watchlist Android App
+# 🎬 Movie Watchlist
 
-Overview
+**Movie Watchlist** is an Android application developed using **Kotlin** and **Android Studio**. The application allows users to maintain their personal movie watchlist, add movie details, select movie posters, schedule watch reminders, and keep track of watched movies and ratings.
 
-Movie Watchlist is a simple Android application developed using Kotlin
-and XML in Android Studio. It allows users to log in and maintain a
-personal movie watchlist. Users can add movie details, select a poster,
-choose a watch date and time, mark a movie as watched, give it a rating,
-edit existing movies, and delete movies. The app also provides a
-reminder feature that can notify the user 30 minutes before the
-scheduled movie time.
+The project is designed with a simple and user-friendly interface using **Material Design**, making it easy to manage movies directly from an Android device.
 
-Technologies Used
+## 📱 Features
 
-Android Studio
+* 🔐 **User Login**
 
-Kotlin
+  * Simple username and password login system.
+  * Multiple predefined users are supported.
+  * User session is saved locally.
 
-XML
+* 🎬 **Movie Watchlist**
 
-Android SDK
+  * View all saved movies in a list.
+  * Each movie displays its poster, name, genre, year, watched status, rating, and scheduled date/time.
 
-AndroidX
+* ➕ **Add Movie**
 
-Material Components
+  * Add a new movie to the watchlist.
+  * Enter movie name, genre, release year, and description.
+  * Select a poster from the available posters.
 
-ConstraintLayout
+* ✏️ **Edit Movie**
 
-SharedPreferences
+  * Tap an existing movie to edit its details.
+  * Update movie information, watched status, rating, poster, and schedule.
 
-JSON
+* 🗑️ **Delete Movie**
 
-AlarmManager
+  * Long press a movie to delete it.
+  * A confirmation dialog is displayed before deletion.
 
-BroadcastReceiver
+* ⭐ **Movie Rating**
 
-ListView and BaseAdapter
+  * Mark a movie as watched.
+  * Give a rating from 0 to 5 stars.
 
-Main Features
+* 📅 **Watch Scheduling**
 
-Login
+  * Select a date and time for watching a movie.
+  * The application can schedule a reminder 30 minutes before the selected watch time.
 
-The application starts with a login screen where the user enters a
-username and password. After successful validation, the username is
-stored locally and the user is taken to the main watchlist screen.
+* 💾 **Local Data Storage**
 
-Movie Watchlist
+  * Movie information is stored locally on the device.
+  * Data is stored using `SharedPreferences` and JSON.
+  * Movie data is maintained separately for each logged-in username.
 
-The main screen displays all movies saved for the current user. Each
-movie shows its poster, name, genre, year, watched/unwatched status,
-rating when watched, and scheduled date and time when available.
+* 🚪 **Logout**
 
-Add Movie
+  * Users can log out from the main screen.
+  * The application returns to the login screen.
 
-Users can add a movie by entering its name, genre, release year,
-description, poster, watch date, watch time, watched status, and rating.
-Required fields are validated, and the year must be between 1888 and
-2100.
+## 🛠️ Technologies Used
 
-Edit Movie
+| Technology            | Usage                            |
+| --------------------- | -------------------------------- |
+| **Kotlin**            | Application programming language |
+| **Android Studio**    | Development environment          |
+| **Android SDK**       | Android application development  |
+| **Material Design**   | UI components and styling        |
+| **ConstraintLayout**  | Screen layouts                   |
+| **ListView**          | Displaying the movie watchlist   |
+| **SharedPreferences** | Local data storage               |
+| **JSON**              | Storing movie information        |
+| **AlarmManager**      | Scheduling movie reminders       |
+| **BroadcastReceiver** | Handling scheduled reminders     |
+| **Gradle Kotlin DSL** | Project build configuration      |
 
-Tapping a movie opens the movie form in edit mode. Existing information
-is loaded and can be updated.
+## 📂 Project Structure
 
-Delete Movie
-
-A long press on a movie opens a confirmation dialog. Selecting Delete
-removes the movie from the watchlist.
-
-Watched Status and Rating
-
-Users can mark a movie as watched. When the Watched checkbox is
-selected, a RatingBar becomes visible so the user can give a rating from
-0 to 5.
-
-Movie Poster Selection
-
-The application provides four local poster images that can be selected
-while adding or editing a movie.
-
-Reminder
-
-Users can select a watch date and time. Android AlarmManager schedules a
-reminder 30 minutes before the selected time. ReminderReceiver receives
-the alarm and displays a reminder message.
-
-Logout
-
-The user can log out from the main screen. The current user is removed
-from local storage and the application returns to the login screen.
-
-Project Structure
-
+```text
 movie_watchlist/
+│
 ├── app/
-│   └── src/main/
-│       ├── java/com/new_app/movie_watchlist/
-│       │   ├── LoginActivity.kt
-│       │   ├── MainActivity.kt
-│       │   ├── AddMovieActivity.kt
-│       │   ├── DataManager.kt
-│       │   ├── Movie.kt
-│       │   └── ReminderReceiver.kt
-│       ├── res/
-│       │   ├── drawable/
-│       │   ├── layout/
-│       │   │   ├── activity_login.xml
-│       │   │   ├── activity_main.xml
-│       │   │   ├── activity_add_movie.xml
-│       │   │   └── item_movie.xml
-│       │   ├── mipmap/
-│       │   ├── values/
-│       │   └── xml/
-│       └── AndroidManifest.xml
+│   └── src/
+│       ├── main/
+│       │   ├── java/
+│       │   │   └── com/new_app/movie_watchlist/
+│       │   │       ├── LoginActivity.kt
+│       │   │       ├── MainActivity.kt
+│       │   │       ├── AddMovieActivity.kt
+│       │   │       ├── DataManager.kt
+│       │   │       ├── Movie.kt
+│       │   │       └── ReminderReceiver.kt
+│       │   │
+│       │   ├── res/
+│       │   │   ├── drawable/
+│       │   │   ├── layout/
+│       │   │   │   ├── activity_login.xml
+│       │   │   │   ├── activity_main.xml
+│       │   │   │   ├── activity_add_movie.xml
+│       │   │   │   └── item_movie.xml
+│       │   │   ├── mipmap/
+│       │   │   └── values/
+│       │   │
+│       │   └── AndroidManifest.xml
+│       │
+│       └── test/
+│
 ├── build.gradle.kts
 ├── settings.gradle.kts
 └── gradle/
+    └── libs.versions.toml
+```
 
-Important Classes
+## 🔑 Login Details
 
-LoginActivity: Handles login and validates the demo credentials.
+The current project contains the following predefined login credentials:
 
-MainActivity: Displays the movie watchlist using ListView and a
-custom MovieAdapter. It handles adding, editing, deleting, and logging
-out.
+| Username  | Password      |
+| --------- | ------------- |
+| `prem`  | `prem@123`  |
+| `prem1` | `prem@123` |
+| `prem2` | `prem@123` |
 
-AddMovieActivity: Provides the form for creating and editing movie
-records. It also handles poster selection, date/time selection, watched
-status, rating, and reminder scheduling.
+> **Note:** These credentials are hardcoded in the application for demonstration/academic purposes. This login system is not intended for production use.
 
-Movie: Kotlin data class representing a movie and converting movie
-data to and from JSON.
+## 🚀 How to Run the Project
 
-DataManager: Handles local storage using SharedPreferences and JSON.
-It provides add, load, update, and delete operations.
+### 1. Clone the Repository
 
-ReminderReceiver: BroadcastReceiver that receives scheduled alarms
-and displays the movie reminder.
+```bash
+git clone <YOUR-GITHUB-REPOSITORY-URL>
+```
 
-Data Storage
+### 2. Open in Android Studio
 
-The application uses SharedPreferences for local storage. The current
-username is stored under current_user. Movie data is stored separately
-for each username using a username-based key. Movie objects are
-converted to JSON objects and stored inside a JSON array.
+Open the cloned `movie_watchlist` folder in **Android Studio**.
 
-CRUD Operations
+### 3. Sync Gradle
 
-Create: Add a new movie.
+Allow Android Studio to download and configure the required Gradle dependencies.
 
-Read: Load and display saved movies.
+### 4. Select an Android Device
 
-Update: Edit an existing movie.
+You can use either:
 
-Delete: Remove a movie.
+* Android Emulator
+* Physical Android device
 
-Reminder Flow
+The project is configured with:
 
-User selects a movie date and time.
+```text
+Compile SDK: 37
+Target SDK: 37
+Minimum SDK: 26
+Java Version: 11
+```
 
-The application calculates a reminder time 30 minutes earlier.
+### 5. Run the Application
 
-AlarmManager schedules the alarm.
+Click the **Run ▶** button in Android Studio and select your Android device.
 
-ReminderReceiver receives the alarm.
+## 📖 Application Flow
 
-A Toast message displays the reminder.
+```text
+Start Application
+       ↓
+   Login Screen
+       ↓
+   Valid Login
+       ↓
+   My Watchlist
+       ↓
+ ┌─────┴──────────┐
+ ↓                ↓
+Add Movie       View Movies
+ ↓                ↓
+Movie Details     ↓
+ ↓             Tap Movie
+Poster           ↓
+Date/Time      Edit Movie
+ ↓
+Save Movie
+       ↓
+Movie Added to Watchlist
+```
 
-Requirements
+## 🎥 Adding a Movie
 
-Android Studio
+To add a movie:
 
-Android SDK with compile SDK 37
+1. Log in to the application.
+2. Tap the **+** button on the main screen.
+3. Enter the movie name.
+4. Enter the genre.
+5. Enter the release year.
+6. Add a description or notes if required.
+7. Select a movie poster.
+8. Select the watching date.
+9. Select the watching time.
+10. Mark the movie as **Watched** if you have already watched it.
+11. Add a rating if the movie is watched.
+12. Tap **SAVE MOVIE**.
 
-Minimum Android SDK 26
+## 💾 Data Management
 
-Java 11 compatible environment
+The application does not require an external database or internet connection for its basic functionality.
 
-Android device or emulator
+Movie information is converted into JSON format and stored using Android `SharedPreferences`.
 
-How to Run
+The `DataManager` class handles:
 
-Extract the project ZIP file.
+* Saving the current user
+* Loading the current user
+* Logging out
+* Saving movies
+* Loading movies
+* Adding movies
+* Updating movies
+* Deleting movies
 
-Open the movie_watchlist folder in Android Studio.
+The `Movie` data class handles conversion between movie objects and JSON objects.
 
-Allow Gradle to sync.
+## ⏰ Movie Reminder
 
-Connect an Android device or start an emulator.
+The application uses Android's `AlarmManager` to schedule movie reminders.
 
-Click Run.
+When a movie is scheduled, the application creates a reminder for **30 minutes before the selected watch time**.
 
-The application opens on the Login screen.
+The `ReminderReceiver` receives the scheduled alarm and displays a message containing the movie name and scheduled time.
 
-Demo Login Credentials
+## 🎨 User Interface
 
-Username   Password
+The application uses a dark movie-themed interface with:
 
-prem       prem@123
-prem1      prem@123
-prem2      prem@123
+* Dark background
+* Red primary color
+* White primary text
+* Gray secondary text
+* Gold accent color
+* Material Cards
+* Floating Action Button
+* Movie poster cards
 
-These credentials are hard-coded for the current academic/demo project.
+The main screens include:
 
-Future Improvements
+### Login Screen
 
-Use Firebase or Room/SQLite for data storage.
+Allows the user to enter their username and password.
 
-Add secure user authentication.
+### My Watchlist
 
-Add movie search, categories, and filtering.
+Displays the user's saved movies in a list with movie posters, details, watched status, ratings, and schedules.
 
-Add online movie posters.
+### Add Movie Screen
 
-Use notifications for reminders.
+Provides a form for entering movie information and selecting posters, dates, times, and ratings.
 
-Add sorting by rating, year, or watch date.
+## 🔒 Permissions
 
-Add cloud backup and synchronization.
+The application uses Android alarm permissions for scheduling exact movie reminders:
 
-Conclusion
+```xml
+android.permission.SCHEDULE_EXACT_ALARM
+android.permission.USE_EXACT_ALARM
+```
 
-Movie Watchlist is a student-level Android application demonstrating
-Activities, Intents, XML layouts, ListView, custom adapters,
-SharedPreferences, JSON handling, dialogs, date/time pickers,
-AlarmManager, and BroadcastReceiver. It provides a simple way to manage
-a personal movie watchlist locally on an Android device.
+## 📸 Screenshots
+
+<img width="350" height="778" alt="image" src="https://github.com/user-attachments/assets/bf8024e8-8a83-4f40-aac9-6f70a337137f" />
+<img width="350" height="778" alt="image" src="https://github.com/user-attachments/assets/6fa1ed6a-f56a-41a1-897e-eae883a118fc" />
+<img width="350" height="778" alt="image" src="https://github.com/user-attachments/assets/ffce1119-e39b-452d-9e45-2b882ef7ac08" />
+<img width="350" height="778" alt="image" src="https://github.com/user-attachments/assets/c47e9fd4-8138-45c2-ba96-35229c6b084e" />
+<img width="350" height="778" alt="image" src="https://github.com/user-attachments/assets/8edfadd3-aa42-4b7b-9a8d-ee347ccc7271" />
+<img width="350" height="778" alt="image" src="https://github.com/user-attachments/assets/79309dc9-f845-4f33-b014-d1cade05268a" />
+<img width="350" height="778" alt="image" src="https://github.com/user-attachments/assets/bb34aeee-0872-41c6-a7d4-32e08c10b9c5" />
+
+
+
+
+## 🔮 Future Improvements
+
+The project can be further improved by adding:
+
+* 🌐 Online movie database/API integration
+* 🔍 Movie search functionality
+* 🎞️ Automatic movie posters from an API
+* ❤️ Favorite movies
+* 📊 Movie statistics and watch history
+* 🔔 Android notification reminders instead of Toast messages
+* 👤 Proper user registration
+* 🔐 Secure authentication
+* ☁️ Cloud database synchronization
+* 🎭 Movie cast and director information
+* ⭐ Reviews and personal notes
+* 🎯 Movie recommendations
+* 🌓 Light/Dark theme switching
+
+## 👨‍💻 Project Information
+
+**Project Name:** Movie Watchlist
+**Platform:** Android
+**Language:** Kotlin
+**IDE:** Android Studio
+**Minimum SDK:** 26
+**Target SDK:** 37
+**Compile SDK:** 37
+**Version:** 1.0
